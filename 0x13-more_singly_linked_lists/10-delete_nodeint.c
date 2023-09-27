@@ -3,12 +3,15 @@
  * delete_nodeint_at_index - delete a node
  * @head: pointer to the first element
  * @index: position of the node to be deleted
+ * Return: 1 if success and -1 if error
  */
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *temp = *head;
 	listint_t *current = NULL;
+
 	unsigned int i = 0;
+
 	if (*head == NULL)
 		return (-1);
 	if (index == 0)
