@@ -7,7 +7,7 @@
  * Return: the value of a bit
  */
 unsigned long int mask;
-int bit;
+unsigned long int bit;
 int get_bit(unsigned long int n, unsigned int index)
 {
 	if (index >= sizeof(n) * 8)
@@ -15,6 +15,10 @@ int get_bit(unsigned long int n, unsigned int index)
 		return (-1);
 	}
 	mask = 1UL << index;
-	bit = (n & mask) != 0;
+	bit = n & mask;
+	if (mask == bit)
+	{
+		return (1);
+	}
 	return (bit);
 }
