@@ -21,9 +21,14 @@ void print_binary(unsigned long int n)
 	while (mask != 0)
 	{
 		if ((n & mask) != 0)
+		{
 			zeros = 0;
-		if (!zeros)
-			printf("%d", (n & mask) != 0);
+			printf("1");
+		}
+		else if (!zeros)
+		{
+			printf("0");
+		}
 		mask >>= 1;
 	}
 }
