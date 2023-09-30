@@ -6,9 +6,10 @@
  * @n: the number
  * Return: the value of a bit
  */
-unsigned long int bit;
 int get_bit(unsigned long int n, unsigned int index)
 {
+	unsigned long int bit;
+
 	if (index >= sizeof(n) * 8)
 	{
 		return (-1);

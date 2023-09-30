@@ -5,10 +5,11 @@
  * @n: the number to be converted
  * Retrun: void
  */
-unsigned long int mask;
-int zeros;
 void print_binary(unsigned long int n)
 {
+	unsigned long int mask;
+	int zeros;
+
 	if (n == 0)
 	{
 		printf("0");
@@ -22,7 +23,7 @@ void print_binary(unsigned long int n)
 		if ((n & mask) != 0)
 			zeros = 0;
 		if (!zeros)
-			printf("%d", (n & mask ) != 0);
-		mask >>=1;
+			printf("%d", (n & mask) != 0);
+		mask >>= 1;
 	}
 }
