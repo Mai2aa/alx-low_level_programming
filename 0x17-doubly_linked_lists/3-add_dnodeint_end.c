@@ -19,7 +19,7 @@ if (*head == NULL)
 {
 newNode->prev = NULL;
 *head = newNode;
-} 
+}
 else
 {
 dlistint_t *temp = *head;
