@@ -6,23 +6,24 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
         return NULL;
     }
 
-    dlistint_t *newNode = malloc(sizeof(dlistint_t));
-    if (newNode == NULL)
+    dlistint_t *new_node;
+    new_node =  malloc(sizeof(dlistint_t));
+    if (new_node == NULL)
     {
         return NULL;
     }
 
-    newNode->n = n;
+    new_node->n = n;
 
     if (idx == 0)
     {
-        newNode->next = *h;
-        newNode->prev = NULL;
+        new_node->next = *h;
+        new_node->prev = NULL;
         if (*h != NULL)
         {
-            (*h)->prev = newNode;
+            (*h)->prev = new_node;
         }
-         *h = newNode;
+         *h = new_node;
     }
     else
     {
@@ -33,7 +34,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
         {
             if (current == NULL)
             {
-                free(newNode);
+                free(new_node);
                 return NULL;
             }
             current = current->next;
@@ -42,18 +43,18 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
         if (current == NULL)
         {
-            free(newNode);
+            free(new_node);
             return NULL;
         }
 
-        newNode->next = current->next;
-        newNode->prev = current;
+        new_node->next = current->next;
+        new_node->prev = current;
         if (current->next != NULL)
         {
-            current->next->prev = newNode;
+            current->next->prev = new_node;
         }
-        current->next = newNode;
+        current->next = new_node;
     }
 
-    return newNode;
+    return new_node;
 }
